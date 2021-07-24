@@ -3,11 +3,11 @@
 ## Create Product
 
 Request:
+
 - Method: POST
 - Endpoint: `/api/product`
-- Header: 
-  - Content-Type: application/json 
-  - Accept: application/json
+- Header:
+  - Content-Type: application/json - Accept: application/json
 - Body:
 
 ```json
@@ -23,44 +23,53 @@ Response:
 
 ```json
 {
-  "id": "string, unique",
-  "name": "string",
-  "price": "long",
-  "quantity": "integer",
-  "createdAt": "date",
-  "updatedAt": "date"
+  "code": "number",
+  "status": "string",
+  "data": {
+    "id": "string, unique",
+    "name": "string",
+    "price": "long",
+    "quantity": "integer",
+    "createdAt": "date",
+    "updatedAt": "date"
+  }
 }
 ```
 
 ## Get Product
 
 Request:
+
 - Method: GET
 - Endpoint: `/api/product/{id_product}`
 - Header:
-    - Accept: application/json
+  - Accept: application/json
 
 Response:
 
 ```json
 {
-  "id": "string, unique",
-  "name": "string",
-  "price": "long",
-  "quantity": "integer",
-  "createdAt": "date",
-  "updatedAt": "date"
+  "code": "number",
+  "status": "string",
+  "data": {
+    "id": "string, unique",
+    "name": "string",
+    "price": "long",
+    "quantity": "integer",
+    "createdAt": "date",
+    "updatedAt": "date"
+  }
 }
 ```
 
 ## Update Product
 
 Request:
+
 - Method: PUT
 - Endpoint: `/api/product{id_product}`
 - Header:
-    - Content-Type: application/json
-    - Accept: application/json
+  - Content-Type: application/json - Accept: application/json
 - Body:
 
 ```json
@@ -75,29 +84,70 @@ Response:
 
 ```json
 {
-  "id": "string, unique",
-  "name": "string",
-  "price": "long",
-  "quantity": "integer",
-  "createdAt": "date",
-  "updatedAt": "date"
+  "code": "number",
+  "status": "string",
+  "data": {
+    "id": "string, unique",
+    "name": "string",
+    "price": "long",
+    "quantity": "integer",
+    "createdAt": "date",
+    "updatedAt": "date"
+  }
 }
 ```
 
 ## List product
 
+Request:
 
+- Method: GET
+- Endpoint: `/api/products`
+- Header:
+  - Accept: application/json
+- Query Param:
+  - size: number,
+  - page: number Response:
+
+```json
+{
+  "code": "number",
+  "status": "string",
+  "data": [
+    {
+      "id": "string, unique",
+      "name": "string",
+      "price": "long",
+      "quantity": "integer",
+      "createdAt": "date",
+      "updatedAt": "date"
+    },
+    {
+      "id": "string, unique",
+      "name": "string",
+      "price": "long",
+      "quantity": "integer",
+      "createdAt": "date",
+      "updatedAt": "date"
+    }
+  ]
+}
+```
 
 ## Delete Product
 
 Request:
+
 - Method: DELETE
 - Endpoint: `/api/product{id_product}`
 - Header:
-    - Accept: application/json
+  - Accept: application/json
 
 Response:
 
 ```json
-
+{
+  "code": "number",
+  "status": "string"
+}
 ```
