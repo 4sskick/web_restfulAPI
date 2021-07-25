@@ -28,3 +28,12 @@ file `system-design.puml`. Make sure you already installed plugin `Plant UML` on
   callback with model data defined.
 - Then forwarding back to `Service` continued to `Controller` which then making a feedback
   to user on what User requested
+  
+```text
+notes:
+- JVM programmer usually thinking of 'Interface by Design'
+- everything on this class, for the first time is making an Interface
+- continued with creating class implementation
+- Interface is a contract which defined by design
+- whenever implementation class is changed, then doesn't need to touch the interface class 
+```
