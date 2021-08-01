@@ -14,6 +14,8 @@ Step:
   you've chosen
 - `\l`to see list db
 - `\dt` to see tables
+- `\d [name_table]` to see detail schema on table
+- `SELECT * FORM "schema".[name_table];` need to use UPPERCASE to query
 
 ## Layer Application
 
