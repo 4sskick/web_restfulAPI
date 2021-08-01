@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController
 class ProductController(val productService: ProductService) {
 
       @PostMapping(
-              value = ["/api/products"],
+              value = ["/api/product"],
               produces = ["application/json"],
               consumes = ["application/json"]
       )
