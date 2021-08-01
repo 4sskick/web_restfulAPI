@@ -1,5 +1,9 @@
 package id.niteroomcreation.web_restfull.api.model
 
+import javax.validation.constraints.Min
+import javax.validation.constraints.NotBlank
+import javax.validation.constraints.NotNull
+
 /**
 {
 "id": "string, unique",
@@ -10,12 +14,19 @@ package id.niteroomcreation.web_restfull.api.model
  */
 data class CreateProductRequest(
 
-        val id: String,
+        //`?` set the field to nullable
+        @field:NotBlank //only for String
+        val id: String?,
 
-        val name: String,
+        @field:NotBlank
+        val name: String?,
 
-        val price: Long,
+        @field:NotNull
+        @field:Min(value = 1)
+        val price: Long?,
 
-        val quantity: Int
+        @field:NotNull
+        @field:Min(value = 0)
+        val quantity: Int?
 
 )
