@@ -5,5 +5,7 @@ import id.niteroomcreation.web_restfull.api.model.ProductResponse
 
 interface ProductService {
 
-      fun create(createProductRequest: CreateProductRequest):ProductResponse
+      fun create(createProductRequest: CreateProductRequest): ProductResponse
+
+      fun get(id: String): ProductResponse
 }

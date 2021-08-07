@@ -1,11 +1,13 @@
 package id.niteroomcreation.web_restfull.api.service.impl
 
 import id.niteroomcreation.web_restfull.api.entity.Product
+import id.niteroomcreation.web_restfull.api.error.NotFoundException
 import id.niteroomcreation.web_restfull.api.model.CreateProductRequest
 import id.niteroomcreation.web_restfull.api.model.ProductResponse
 import id.niteroomcreation.web_restfull.api.repository.ProductRepository
 import id.niteroomcreation.web_restfull.api.service.ProductService
 import id.niteroomcreation.web_restfull.api.validation.ValidationUtil
+import org.springframework.data.repository.findByIdOrNull
 import org.springframework.stereotype.Service
 import java.util.*
 
@@ -31,7 +33,22 @@ class ProductServiceImpl(
             )
 
             productRepository.save(product)
+            return convertProductToProductResponse(product)
+      }
 
+      override fun get(id: String): ProductResponse {
+            //returning Optional on `findById`, return values could be null
+            val product = productRepository.findByIdOrNull(id)
+            if (product == null) {
+                  //would return exception
+
+                  throw NotFoundException()
+            } else {
+                  return convertProductToProductResponse(product)
+            }
+      }
+
+      private fun convertProductToProductResponse(product: Product): ProductResponse {
             return ProductResponse(
                     id = product.id,
                     name = product.name,
