@@ -21,7 +21,7 @@ Step:
 
 This gonna be a simple layer application which using MVC as design architecture. You can see on
 file `system-design.puml`. Make sure you already installed plugin `Plant UML` on intellij IDEA.
-[![see here](system-design.puml)](system-design.puml)
+[![see here](system-design.png)](system-design.puml)
 
 - From user which gonna make a request, then accepted by `Controller`. It doesn't do a thing, only forwarding
   to `Service`.
