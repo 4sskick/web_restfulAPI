@@ -58,6 +58,7 @@ class ProductServiceImpl(
                   throw NotFoundException()
             }
 
+            validationUtil.validate(updateProductRequest)
 
             product.apply {
                   name = updateProductRequest.name!!

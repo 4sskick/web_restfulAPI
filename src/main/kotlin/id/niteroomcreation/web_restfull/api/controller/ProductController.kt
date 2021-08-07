@@ -37,7 +37,7 @@ class ProductController(val productService: ProductService) {
       }
 
       @PutMapping(
-              value = ["/api/product{id_product}"],
+              value = ["/api/product/{id_product}"],
               consumes = ["application/json"],
               produces = ["application/json"]
       )
