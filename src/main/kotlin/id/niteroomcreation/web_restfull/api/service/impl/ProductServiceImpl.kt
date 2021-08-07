@@ -4,6 +4,7 @@ import id.niteroomcreation.web_restfull.api.entity.Product
 import id.niteroomcreation.web_restfull.api.error.NotFoundException
 import id.niteroomcreation.web_restfull.api.model.CreateProductRequest
 import id.niteroomcreation.web_restfull.api.model.ProductResponse
+import id.niteroomcreation.web_restfull.api.model.UpdateProductRequest
 import id.niteroomcreation.web_restfull.api.repository.ProductRepository
 import id.niteroomcreation.web_restfull.api.service.ProductService
 import id.niteroomcreation.web_restfull.api.validation.ValidationUtil
@@ -46,6 +47,28 @@ class ProductServiceImpl(
             } else {
                   return convertProductToProductResponse(product)
             }
+      }
+
+      override fun update(id: String, updateProductRequest: UpdateProductRequest): ProductResponse {
+            //returning Optional on `findById`, return values could be null
+            val product = productRepository.findByIdOrNull(id)
+            if (product == null) {
+                  //would return exception
+
+                  throw NotFoundException()
+            }
+
+
+            product.apply {
+                  name = updateProductRequest.name!!
+                  price = updateProductRequest.price!!
+                  quantity = updateProductRequest.quantity!!
+                  updatedAt = Date()
+            }
+
+            productRepository.save(product)
+
+            return convertProductToProductResponse(product)
       }
 
       private fun convertProductToProductResponse(product: Product): ProductResponse {

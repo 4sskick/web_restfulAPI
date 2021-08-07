@@ -69,7 +69,8 @@ Request:
 - Method: PUT
 - Endpoint: `/api/product{id_product}`
 - Header:
-  - Content-Type: application/json - Accept: application/json
+  - Content-Type: application/json 
+  - Accept: application/json
 - Body:
 
 ```json

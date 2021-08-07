@@ -2,6 +2,7 @@ package id.niteroomcreation.web_restfull.api.controller
 
 import id.niteroomcreation.web_restfull.api.model.CreateProductRequest
 import id.niteroomcreation.web_restfull.api.model.ProductResponse
+import id.niteroomcreation.web_restfull.api.model.UpdateProductRequest
 import id.niteroomcreation.web_restfull.api.model.WebResponse
 import id.niteroomcreation.web_restfull.api.service.ProductService
 import org.springframework.web.bind.annotation.*
@@ -30,6 +31,22 @@ class ProductController(val productService: ProductService) {
       fun getProduct(@PathVariable("id_product") id: String): WebResponse<ProductResponse> {
             val productResponse = productService.get(id)
             return WebResponse(code = 200,
+                    status = "OK",
+                    data = productResponse
+            )
+      }
+
+      @PutMapping(
+              value = ["/api/product{id_product}"],
+              consumes = ["application/json"],
+              produces = ["application/json"]
+      )
+      fun updateProduct(@PathVariable("id_product") id: String,
+                        @RequestBody updateProductRequest: UpdateProductRequest): WebResponse<ProductResponse> {
+
+            val productResponse = productService.update(id, updateProductRequest)
+            return WebResponse(
+                    code = 200,
                     status = "OK",
                     data = productResponse
             )
